@@ -12,6 +12,7 @@ const app = express();
 const PORT = process.env.PORT;
 const HOST = '0.0.0.0'; 
 const MOTDEPASSEAPPLICATION = process.env.MOTDEPASSEAPPLICATION;
+const MAIL = process.env.MAIL;
 app.use(cors());
 app.use(express.json());
 
@@ -45,7 +46,7 @@ app.post("/api/contact", async (req, res) => {
     const transporter = nodemailer.createTransport({
         service: "gmail",
         auth: {
-            user: "nbloc10@gmail.com", // 🔹 ton adresse Gmail (celle qui envoie réellement)
+            user: MAIL, // 🔹 ton adresse Gmail (celle qui envoie réellement)
             pass: MOTDEPASSEAPPLICATION, // 🔹 mot de passe d'application Gmail
         },
     });
@@ -53,16 +54,14 @@ app.post("/api/contact", async (req, res) => {
     // Détails de l'email envoyé
     const mailOptions = {
         from: `"${firstName} ${lastName}" <${email}>`, // 🔹 l'expéditeur = celui qui a rempli le formulaire
-        to: "nbloc10@gmail.com", // 🔹 ton adresse pour recevoir les messages
-        subject: "📬 Nouvelle demande de contact depuis le site vitrine",
+        to: MAIL, // 🔹 ton adresse pour recevoir les messages
+        subject: "📬 Nouvelle demande de contact depuis le site web",
         text: 
 `Bonjour, 
-Vous venez de recevoir une nouvelle demande via le formulaire du site vitrine. Voici les détails :
+Tu viens de recevoir une nouvelle demande via le formulaire du site vitrine. Voici les détails :
 
 Nom : ${firstName} ${lastName}
 📧 Email : ${email}
-📞 Téléphone : ${phone}
-📅 Date souhaitée : ${formattedDate}
 
 📝 Message :
 ${message}
@@ -83,6 +82,6 @@ Ce message a été envoyé depuis le formulaire du magnifique site de Julien.`,
 
 
 app.listen(PORT, HOST, () => {
-  console.log(`Serveur lancé sur http://${HOST}:${PORT}`);
+  console.log(`Serveur lancé sur http://___:${PORT}`);
 });
 
