@@ -4,8 +4,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Julien Bossaert · Développeur Web Freelance</title>
-  <meta name="description" content="Julien Bossaert, développeur web freelance spécialisé en sites vitrines, e‑commerce et applications web modernes." />
-  <link rel="icon" href="img/logo jb.png" type="image/png" />
+  <meta name="description" content="Julien Bossaert, développeur web freelance spécialisé en sites vitrines, e-commerce, applications web modernes et solutions sur mesure." />
+  <link rel="icon" href="img/logo-jb.png" type="image/png" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -13,24 +13,35 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+  <div id="page-loader">
+    <span class="loader"></span>
+  </div>
 
-<header role="banner">
-  <img src="img/logo jb.png" alt="Julien Bossaert, développeur web freelance" />
+
+<header class="hero">
+  <img src="img/logo-jb.png" alt="Logo Julien Bossaert" />
   <h1>Julien Bossaert</h1>
   <h2>Développeur Web Freelance</h2>
   <p>
-    Je conçois des sites web <strong>modernes</strong>, <strong>efficaces</strong> et <strong>adaptés</strong> à vos besoins,
-    du site vitrine à l’application web sur mesure.
+    Je conçois des sites web <strong>modernes</strong>, <strong>efficaces</strong> et <strong>adaptés</strong> à vos besoins.
   </p>
-  <nav aria-label="Navigation principale">
-    <a href="#about">À propos</a>
-    <a href="#portfolio">Portfolio</a>
-    <a href="#services">Services</a>
-    <a href="#contact">Contact</a>
-  </nav>
 </header>
 
-<section id="about">
+<nav class="main-nav" aria-label="Navigation principale">
+  <button id="burgerBtn" aria-label="Menu">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+  <a href="#about">À propos</a>
+  <a href="#portfolio">Portfolio</a>
+  <a href="#services">Services</a>
+  <a href="#formation">Formation</a>
+  <a href="#contact">Contact</a>
+</nav>
+
+
+<section id="about" data-animate>
   <div class="container">
     <h2>À propos de moi</h2>
     <div class="text">
@@ -39,20 +50,19 @@
         particuliers, startups et PME dans la création de solutions web <strong>fiables</strong>, <strong>réactives</strong> et <strong>sécurisées</strong>, en restant toujours à l’écoute de leurs besoins.
       </p>
       <p>
-        De la conception à la mise en ligne, je propose un accompagnement complet
-        avec une attention particulière portée à l’<strong>ergonomie</strong>, à la <strong>performance</strong>
-        et à la <strong>qualité du code</strong>.
+        Mes compétences couvrent la conception, le développement, l’optimisation SEO et
+        la maintenance complète de projets digitaux.
       </p>
       <ul>
-        <li>HTML · CSS · JavaScript</li>
+        <li>HTML · CSS · JavaScript · Responsive Design</li>
         <li>Node.js · Express · EJS · MongoDB</li>
-        <li>SEO · Responsive Design · Performance</li>
+        <li>Référencement (SEO) · Performance web</li>
       </ul>
     </div>
   </div>
 </section>
 
-<section id="services">
+<section id="services" data-animate>
   <div class="container">
     <h2>Mes services</h2>
     <div class="service-list">
@@ -69,81 +79,140 @@
         <p>Stratégies de référencement avancées pour améliorer votre visibilité et générer un trafic qualifié.</p>
       </div>
       <div class="service">
-        <h3>Performance & rapidité</h3>
-        <p>Sites web optimisés pour un chargement rapide et une navigation fluide, garantissant la satisfaction des visiteurs.</p>
-      </div>
-      <div class="service">
         <h3>Sécurité & maintenance</h3>
         <p>Mises à jour, corrections et protections pour un site fiable, sécurisé et toujours performant.</p>
       </div>
       <div class="service">
         <h3>Intégration & automatisation</h3>
-        <p>Connexion avec vos outils et automatisation de processus pour plus d’efficacité et de productivité.</p>
+        <p>Connexion avec vos outils et automatisation de processus pour plus d’efficacité.</p>
       </div>
     </div>
   </div>
 </section>
 
-<section id="portfolio">
+<section id="portfolio" data-animate>
   <div class="container">
     <h2>Portfolio</h2>
     <div class="projects">
+
+      <!-- Projet 1 -->
       <div class="project">
         <img src="img/maison.jpeg" alt="Capture d'écran du projet 'Maison à vendre'" loading="lazy" />
         <div class="content">
-          <h3>nbloc10 – Site vitrine</h3>
-          <p>Site vitrine responsive et moderne pour présenter un bien immobilier, avec navigation fluide et design épuré.</p>
+          <h3>NBloc10 – Site vitrine</h3>
+          <p>Site vitrine responsive pour présenter efficacement un bien immobilier, avec navigation fluide et design épuré.</p>
           <p><strong>Tech :</strong> HTML, CSS, JavaScript</p>
-          <p class="project-note">Projet en ligne – destiné à un particulier. Permet au client d’attirer efficacement des acheteurs grâce à une interface claire et performante.</p>
-          <a href="https://jubdev.fr/" target="_blank" aria-label="Voir le projet Maison à vendre">Voir le projet</a>
+          <p class="project-note">Projet en ligne – destiné à un particulier.</p>
+          <a href="https://jubdev.fr/" target="_blank">Voir le projet</a>
+        </div>
+        <div class="project-hint">
+            <span>+</span>
         </div>
       </div>
 
+      <!-- Projet 2 -->
       <div class="project">
         <img src="https://cdn.futura-sciences.com/sources/images/cerveau-organe.jpg" alt="Capture d'écran de l'application Q-Culture" loading="lazy" />
         <div class="content">
-          <h3>Q-Culture – Projet démonstration</h3>
-          <p>
-            Application de quiz interactif intégrant un système de score, de classement et de communication en temps réel. 
-          </p>
-          <p><strong>Tech :</strong> Node.js, Express, EJS, JavaScript, CSS, Socket.IO</p>
-          <p class="project-note">Projet de démonstration – non destiné à un usage commercial, démo disponible sur demande.</p>
-          <a href="https://q-culture.jubdev.fr/" target="_blank" aria-label="Voir le projet Q-Culture">Voir le projet</a>
+          <h3>Q-Culture – Quiz interactif</h3>
+          <p>Application de quiz intégrant scores, classements et interactions en temps réel.</p>
+          <p><strong>Tech :</strong> Node.js, Express, Socket.IO, JavaScript, CSS, EJS</p>
+          <p class="project-note">Démo disponible sur demande.</p>
+          <a href="https://q-culture.jubdev.fr/" target="_blank">Voir la démo</a>
+        </div>
+        <div class="project-hint">
+            <span>+</span>
+        </div>
+      </div>
+
+      <!-- Projet ajouté 3 -->
+      <div class="project">
+        <img src="img/site-wordpress-01.jpg" alt="Site vitrine pour entreprise locale" loading="lazy" />
+        <div class="content">
+          <h3>Auris Audition – Site vitrine</h3>
+          <p>Site vitrine professionnel développé sous WordPress pour une entreprise d’audioprothèse.</p>
+          <p><strong>Tech :</strong> WordPress, PHP, CSS</p>
+          <p class="project-note">Accompagnement complet du cahier des charges à la mise en ligne.</p>
+          <a href="#" target="_blank">Voir le site</a>
+        </div>
+        <div class="project-hint">
+            <span>+</span>
+        </div>
+      </div>
+
+      <!-- Projet ajouté 4 -->
+      <div class="project">
+        <img src="img/site-wordpress-02.jpg" alt="Site vitrine plomberie" loading="lazy" />
+        <div class="content">
+          <h3>Meier Plomberie – Site vitrine</h3>
+          <p>Site vitrine responsive pour artisan plombier avec galeries et formulaires de contact.</p>
+          <p><strong>Tech :</strong> WordPress, CSS, JavaScript</p>
+          <p class="project-note">Optimisé pour visibilité locale.</p>
+          <a href="#" target="_blank">Voir le site</a>
+        </div>
+        <div class="project-hint">
+            <span>+</span>
+        </div>
+      </div>
+
+      <!-- Projet ajouté 5 -->
+      <div class="project">
+        <img src="img/app-mobile.png" alt="Application mobile anti-gaspillage" loading="lazy" />
+        <div class="content">
+          <h3>ZeroWaste – Application mobile (en cours)</h3>
+          <p>Application mobile multi-plateformes pour lutter contre le gaspillage alimentaire.</p>
+          <p><strong>Tech :</strong> Ionic, MySQL</p>
+          <p class="project-note">En cours de développement.</p>
+          <a href="#" target="_blank">Plus d’infos</a>
+        </div>
+        <div class="project-hint">
+            <span>+</span>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<section id="contact">
+<section id="formation" data-animate>
+  <div class="container">
+    <h2>Formation & Parcours</h2>
+    <ul>
+      <li>
+        <strong>Formation autodidacte – OpenClassrooms</strong><br>
+        Développement web (HTML, CSS, JavaScript) via des cours en ligne.<br>
+        Acquisition des bases du développement front-end, des bonnes pratiques et de la logique de programmation.
+      </li>
+      <li>
+        <strong>Titre Professionnel Développeur Web et Web Mobile (équivalent BTS)</strong><br>
+        Certification obtenue – Conception et développement d’applications web et mobiles.<br>
+        Projets concrets, travail en conditions professionnelles, respect des standards de qualité et de performance.
+      </li>
+    </ul>
+  </div>
+</section>
+
+
+<section id="contact" data-animate>
   <div class="container">
     <h2>Contact</h2>
     <div class="contact-form">
-      <form action="#" method="POST"> <h4 class="contact-heading">Avez-vous des idées ? Travaillons ensemble en équipe.</h4>
-        <p class="intro">
-          Parlez-moi de vous et de vos projets à réaliser.
-        </p>
-        
-        <label for="firstname" class="visually-hidden">Prénom</label>
-        <input type="text" id="firstname" placeholder="Votre prénom" required />
-        
-        <label for="lastname" class="visually-hidden">Nom</label>
-        <input type="text" id="lastname" placeholder="Votre nom" required />
-        
-        <label for="email" class="visually-hidden">Email</label>
-        <input type="email" id="email" placeholder="Votre email" required />
-        
-        <label for="message" class="visually-hidden">Message</label>
-        <textarea id="message" rows="5" placeholder="Votre message" required></textarea> <button type="submit">Envoyer le message</button>
-        
-        <p class="rgpd">
-          Vos données seront utilisées uniquement pour répondre à votre demande, conformément à la réglementation.
-        </p>
+      <form id="contactForm" method="POST">
+        <h4 class="contact-heading">Avez-vous des idées ? Travaillons ensemble.</h4>
+        <p class="intro">Parlez-moi de vous et de vos projets.</p>
+
+        <input type="text" id="firstName" name="firstName" placeholder="Votre prénom" required />
+        <input type="text" id="lastName" name="lastName" placeholder="Votre nom" required />
+        <input type="email" id="email" name="email" placeholder="Votre email" required />
+        <textarea id="message" name="message" rows="5" placeholder="Votre message" required></textarea>
+
+        <button type="submit" id="submitBtn">Envoyer le message</button>
+
+
+        <p class="rgpd">Vos données seront utilisées uniquement pour répondre à votre demande, conformément à la réglementation.</p>
       </form>
     </div>
   </div>
 </section>
-
 
 <footer>
   <p>© 2025 JuBdev · Tous droits réservés</p>
@@ -152,6 +221,9 @@
     <a href="/politiquedeconfidentialite">Politique de confidentialité</a>
   </p>
 </footer>
+
+<script src="script.js"></script>
+<div id="toast-container"></div>
 
 </body>
 </html>

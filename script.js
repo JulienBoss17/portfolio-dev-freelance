@@ -1,103 +1,123 @@
-// Initialize Lucide icons
-document.addEventListener('DOMContentLoaded', function() {
-    lucide.createIcons();
-});
+document.addEventListener('DOMContentLoaded', () => {
+    
+    // --- 1. GESTION DU LOADER ---
+    const loader = document.getElementById('page-loader');
+    if (loader) {
+        window.addEventListener('load', () => {
+            loader.style.opacity = '0';
+            setTimeout(() => loader.remove(), 600);
+        });
+    }
 
-// Email validation
-function validateEmail(email) {
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return emailRegex.test(email);
-}
+    // --- 2. MENU BURGER & RESPONSIVE ---
+    const burgerBtn = document.getElementById('burgerBtn');
+    const nav = document.querySelector('.main-nav');
+    const body = document.body;
 
-// Error handling
-function showError(fieldId, message) {
-    const errorElement = document.getElementById(fieldId + 'Error');
-    if (errorElement) errorElement.textContent = message;
-}
-function clearError(fieldId) {
-    const errorElement = document.getElementById(fieldId + 'Error');
-    if (errorElement) errorElement.textContent = '';
-}
-function clearAllErrors() {
-    ['firstName','lastName','email'].forEach(clearError);
-}
+    if (burgerBtn && nav) {
+        const toggleMenu = () => {
+            const isOpen = nav.classList.toggle('open');
+            burgerBtn.classList.toggle('active');
+            body.classList.toggle('menu-open'); // Bloque le scroll
+            burgerBtn.setAttribute('aria-expanded', isOpen);
+        };
 
-// Form validation
-function validateForm(formData) {
-    let isValid = true;
-    clearAllErrors();
+        burgerBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            toggleMenu();
+        });
 
-    if (!formData.firstName.trim()) { showError('firstName','Le prénom est obligatoire'); isValid=false; }
-    if (!formData.lastName.trim()) { showError('lastName','Le nom est obligatoire'); isValid=false; }
-    if (!formData.email.trim()) { showError('email','L\'email est obligatoire'); isValid=false; }
-    else if (!validateEmail(formData.email)) { showError('email','Adresse email invalide'); isValid=false; }
+        // Fermer le menu si on clique sur un lien ou à l'extérieur
+        document.querySelectorAll('.main-nav a').forEach(link => {
+            link.addEventListener('click', () => {
+                if (nav.classList.contains('open')) toggleMenu();
+            });
+        });
+    }
 
-    return isValid;
-}
+    // --- 3. ANIMATION AU SCROLL (Intersection Observer) ---
+    const revealElements = document.querySelectorAll('[data-animate]');
+    const observerOptions = { threshold: 0.15, rootMargin: "0px 0px -50px 0px" };
 
-// Toast notifications
-function showToast(message, type='success') {
-    const container = document.getElementById('toast-container');
-    const toast = document.createElement('div');
-    toast.className = `toast ${type}`;
-    toast.textContent = message;
-    container.appendChild(toast);
-    setTimeout(() => { if(toast.parentNode) toast.parentNode.removeChild(toast); }, 5000);
-}
+    const revealObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('is-visible');
+                revealObserver.unobserve(entry.target);
+            }
+        });
+    }, observerOptions);
 
-// Form submission
-async function handleSubmit(event) {
-    event.preventDefault();
-    const form = event.target;
-    const submitBtn = document.getElementById('submitBtn');
-    submitBtn.disabled = true;
-    submitBtn.textContent = 'Envoi en cours...';
+    revealElements.forEach(el => revealObserver.observe(el));
 
-    const formData = {
-        firstName: form.firstName.value.trim(),
-        lastName: form.lastName.value.trim(),
-        email: form.email.value.trim(),
-        message: form.message.value.trim()
+    // --- 4. GESTION DU FORMULAIRE & TOASTS ---
+    const showToast = (message, type = 'success') => {
+        const container = document.getElementById('toast-container');
+        if (!container) return;
+        const toast = document.createElement('div');
+        toast.className = `toast ${type}`;
+        toast.textContent = message;
+        container.appendChild(toast);
+        setTimeout(() => {
+            toast.style.opacity = '0';
+            setTimeout(() => toast.remove(), 500);
+        }, 4000);
     };
 
-    if(!validateForm(formData)) {
-        submitBtn.disabled = false;
-        submitBtn.textContent = 'Envoyer ma demande';
-        return;
-    }
+    const form = document.getElementById('contactForm');
+    const submitBtn = document.getElementById('submitBtn');
 
-    try {
-        const response = await fetch('http://localhost:3001/api/contact', {
-            method: 'POST',
-            headers: {'Content-Type':'application/json'},
-            body: JSON.stringify(formData)
+    if (form) {
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            // Validation simple
+            const email = form.email.value.trim();
+            if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+                showToast('Email invalide', 'error');
+                return;
+            }
+
+            submitBtn.disabled = true;
+            const originalText = submitBtn.textContent;
+            submitBtn.textContent = 'Envoi en cours...';
+
+            try {
+                // Remplacer l'URL par ton vrai endpoint de production plus tard
+                const response = await fetch('https://portfolio.jubdev.fr/api/contact', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        firstName: form.firstName.value,
+                        lastName: form.lastName.value,
+                        email: email,
+                        message: form.message.value
+                    })
+                });
+
+                if (response.ok) {
+                    showToast('Message envoyé !', 'success');
+                    form.reset();
+                } else {
+                    throw new Error();
+                }
+            } catch (err) {
+                showToast('Erreur lors de l\'envoi.', 'error');
+            } finally {
+                submitBtn.disabled = false;
+                submitBtn.textContent = originalText;
+            }
         });
-        if(!response.ok) throw new Error('Erreur serveur');
-        showToast('Votre message a été envoyé avec succès !','success');
-        form.reset();
-    } catch(e) {
-        console.error(e);
-        showToast('Erreur lors de l\'envoi. Veuillez réessayer.','error');
-    } finally {
-        submitBtn.disabled = false;
-        submitBtn.textContent = 'Envoyer ma demande';
     }
-}
-
-// Smooth scroll for all internal links
-document.querySelectorAll('a[href^="#"]').forEach(anchor=>{
-    anchor.addEventListener('click', function(e){
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        if(target) target.scrollIntoView({behavior:'smooth', block:'start'});
-    });
 });
 
-// Real-time validation
-document.addEventListener('DOMContentLoaded', function() {
-    const form = document.getElementById('contactForm');
-    if(!form) return;
-    form.querySelectorAll('input,textarea').forEach(input=>{
-        input.addEventListener('input', function(){ clearError(this.name); });
+document.querySelectorAll('.project').forEach(card => {
+    card.addEventListener('click', function() {
+        // Enlève la classe active des autres cartes
+        document.querySelectorAll('.project').forEach(c => {
+            if (c !== card) c.classList.remove('is-tapped');
+        });
+        // Toggle la carte actuelle
+        this.classList.toggle('is-tapped');
     });
 });
