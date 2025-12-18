@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // --- 2. MENU BURGER & RESPONSIVE ---
+    // --- 2. MENU BURGER ---
     const burgerBtn = document.getElementById('burgerBtn');
     const nav = document.querySelector('.main-nav');
     const body = document.body;
@@ -18,27 +18,20 @@ document.addEventListener('DOMContentLoaded', () => {
         const toggleMenu = () => {
             const isOpen = nav.classList.toggle('open');
             burgerBtn.classList.toggle('active');
-            body.classList.toggle('menu-open'); // Bloque le scroll
+            body.classList.toggle('menu-open');
             burgerBtn.setAttribute('aria-expanded', isOpen);
         };
-
         burgerBtn.addEventListener('click', (e) => {
             e.stopPropagation();
             toggleMenu();
         });
-
-        // Fermer le menu si on clique sur un lien ou à l'extérieur
         document.querySelectorAll('.main-nav a').forEach(link => {
-            link.addEventListener('click', () => {
-                if (nav.classList.contains('open')) toggleMenu();
-            });
+            link.addEventListener('click', () => { if (nav.classList.contains('open')) toggleMenu(); });
         });
     }
 
-    // --- 3. ANIMATION AU SCROLL (Intersection Observer) ---
+    // --- 3. ANIMATION AU SCROLL ---
     const revealElements = document.querySelectorAll('[data-animate]');
-    const observerOptions = { threshold: 0.15, rootMargin: "0px 0px -50px 0px" };
-
     const revealObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
@@ -46,11 +39,63 @@ document.addEventListener('DOMContentLoaded', () => {
                 revealObserver.unobserve(entry.target);
             }
         });
-    }, observerOptions);
-
+    }, { threshold: 0.15 });
     revealElements.forEach(el => revealObserver.observe(el));
 
-    // --- 4. GESTION DU FORMULAIRE & TOASTS ---
+// --- 4. PORTFOLIO : VERSION SÉCURISÉE ---
+const initPortfolio = () => {
+    const projects = document.querySelectorAll('.project');
+    
+    console.log("Portfolio initialisé :", projects.length, "projets trouvés.");
+
+    projects.forEach(card => {
+        const hint = card.querySelector('.project-hint');
+
+        if (hint) {
+            // On utilise onclick directement pour éviter les doublons d'écouteurs
+            hint.onclick = (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                
+                console.log("Bouton cliqué pour :", card.querySelector('h3').innerText);
+
+                const isOpen = card.classList.contains('is-tapped');
+
+                // Fermer les autres
+                projects.forEach(p => p.classList.remove('is-tapped'));
+
+                // Ouvrir/Fermer l'actuel
+                if (!isOpen) {
+                    card.classList.add('is-tapped');
+                }
+            };
+        }
+
+        // Fermer en cliquant sur la carte ouverte (sauf sur le lien)
+        card.onclick = (e) => {
+            if (e.target.tagName === 'A') return;
+            if (card.classList.contains('is-tapped')) {
+                card.classList.remove('is-tapped');
+            }
+        };
+    });
+
+    // Fermeture si clic à l'extérieur
+    document.addEventListener('click', (e) => {
+        if (!e.target.closest('.project')) {
+            projects.forEach(p => p.classList.remove('is-tapped'));
+        }
+    });
+};
+
+// Lancement au chargement
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initPortfolio);
+} else {
+    initPortfolio();
+}
+
+    // --- 5. FORMULAIRE ---
     const showToast = (message, type = 'success') => {
         const container = document.getElementById('toast-container');
         if (!container) return;
@@ -65,25 +110,17 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     const form = document.getElementById('contactForm');
-    const submitBtn = document.getElementById('submitBtn');
-
     if (form) {
         form.addEventListener('submit', async (e) => {
             e.preventDefault();
-            
-            // Validation simple
+            const submitBtn = document.getElementById('submitBtn');
             const email = form.email.value.trim();
-            if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-                showToast('Email invalide', 'error');
-                return;
-            }
-
+            
             submitBtn.disabled = true;
             const originalText = submitBtn.textContent;
-            submitBtn.textContent = 'Envoi en cours...';
+            submitBtn.textContent = 'Envoi...';
 
             try {
-                // Remplacer l'URL par ton vrai endpoint de production plus tard
                 const response = await fetch('https://portfolio.jubdev.fr/api/contact', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
@@ -94,13 +131,10 @@ document.addEventListener('DOMContentLoaded', () => {
                         message: form.message.value
                     })
                 });
-
                 if (response.ok) {
-                    showToast('Message envoyé !', 'success');
+                    showToast('Message envoyé !');
                     form.reset();
-                } else {
-                    throw new Error();
-                }
+                } else { throw new Error(); }
             } catch (err) {
                 showToast('Erreur lors de l\'envoi.', 'error');
             } finally {
@@ -109,15 +143,4 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     }
-});
-
-document.querySelectorAll('.project').forEach(card => {
-    card.addEventListener('click', function() {
-        // Enlève la classe active des autres cartes
-        document.querySelectorAll('.project').forEach(c => {
-            if (c !== card) c.classList.remove('is-tapped');
-        });
-        // Toggle la carte actuelle
-        this.classList.toggle('is-tapped');
-    });
 });
