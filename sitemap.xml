@@ -1,11 +1,59 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
 
   <!-- Page principale -->
   <url>
     <loc>https://portfolio.jubdev.fr/</loc>
     <priority>1.0</priority>
     <changefreq>weekly</changefreq>
+    <image:image>
+      <image:loc>https://portfolio.jubdev.fr/img/logo-jb.png</image:loc>
+      <image:caption>Logo Julien Bossaert - Développeur Web Freelance</image:caption>
+    </image:image>
+  </url>
+
+  <!-- À propos -->
+  <url>
+    <loc>https://portfolio.jubdev.fr/#about</loc>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+
+  <!-- Services -->
+  <url>
+    <loc>https://portfolio.jubdev.fr/#services</loc>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+
+  <!-- Portfolio -->
+  <url>
+    <loc>https://portfolio.jubdev.fr/#portfolio</loc>
+    <priority>0.9</priority>
+    <changefreq>weekly</changefreq>
+    <image:image>
+      <image:loc>https://portfolio.jubdev.fr/img/maison.jpeg</image:loc>
+      <image:caption>Capture d'écran du projet 'Maison à vendre'</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://cdn.futura-sciences.com/sources/images/cerveau-organe.jpg</image:loc>
+      <image:caption>Capture d'écran de l'application Q-Culture</image:caption>
+    </image:image>
+  </url>
+
+  <!-- Formation -->
+  <url>
+    <loc>https://portfolio.jubdev.fr/#formation</loc>
+    <priority>0.7</priority>
+    <changefreq>yearly</changefreq>
+  </url>
+
+  <!-- Contact -->
+  <url>
+    <loc>https://portfolio.jubdev.fr/#contact</loc>
+    <priority>0.7</priority>
+    <changefreq>monthly</changefreq>
   </url>
 
   <!-- Pages légales -->
@@ -21,3 +69,4 @@
   </url>
 
 </urlset>
+
