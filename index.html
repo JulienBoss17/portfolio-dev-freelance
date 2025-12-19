@@ -3,8 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Julien Bossaert · Développeur Web Freelance</title>
-  <meta name="description" content="Julien Bossaert, développeur web freelance spécialisé en sites vitrines, e-commerce, applications web modernes et solutions sur mesure." />
+  <title>Développeur Web Freelance à Surgères | Julien Bossaert</title>
+
+  <meta name="description" content="Développeur web freelance à Surgères, je crée des sites vitrines, e-commerce et applications web modernes, rapides et optimisées pour le référencement." />
   <link rel="icon" href="img/logo-jb.png" type="image/png" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -19,13 +20,28 @@
 
 
 <header class="hero">
-  <img src="img/logo-jb.png" alt="Logo Julien Bossaert" />
-  <h1>Julien Bossaert</h1>
-  <h2>Développeur Web Freelance</h2>
+  <img src="img/logo-jb.png" alt="Logo Julien Bossaert" class="logo"/>
+  <h1>Développeur Web Freelance à Surgères</h1>
+  <p class="hero-name">Julien Bossaert</p>
   <p>
-    Je conçois des sites web <strong>modernes</strong>, <strong>efficaces</strong> et <strong>adaptés</strong> à vos besoins.
+    Je conçois des sites web <strong>modernes</strong>, <strong>efficaces</strong> et
+    <strong>adaptés</strong> à vos besoins.
   </p>
+  <!-- Réseaux sociaux -->
+<div class="social-links">
+  <a href="https://www.linkedin.com/in/julien-bossaert-29085530b/" target="_blank" aria-label="LinkedIn">
+    <img src="img/linkedin.png" alt="LinkedIn">
+  </a>
+  <a href="https://github.com/JulienBoss17" target="_blank" aria-label="GitHub">
+    <img src="img/Github.svg" alt="GitHub">
+  </a>
+  <a href="https://www.instagram.com/julien.boss" target="_blank" aria-label="Instagram">
+    <img src="img/Instagram.webp" alt="Instagram">
+  </a>
+</div>
+
 </header>
+
 
 <nav class="main-nav" aria-label="Navigation principale">
   <button id="burgerBtn" aria-label="Menu">
@@ -46,9 +62,12 @@
     <h2>À propos de moi</h2>
     <div class="text">
       <p>
-        Développeur web freelance avec plus de 2 ans d’expérience, j’accompagne
-        particuliers, startups et PME dans la création de solutions web <strong>fiables</strong>, <strong>réactives</strong> et <strong>sécurisées</strong>, en restant toujours à l’écoute de leurs besoins.
+        Développeur web freelance <strong>basé à Surgères en Charente-Maritime</strong> avec plus de 2 ans d’expérience,
+        j’accompagne particuliers, startups et PME dans la création de solutions web
+        <strong>fiables</strong>, <strong>réactives</strong> et <strong>sécurisées</strong>, en restant toujours à l’écoute de leurs besoins.
+        Je conçois des sites vitrines, e-commerce et applications web sur mesure, optimisés pour le référencement et la performance.
       </p>
+
       <p>
         Mes compétences couvrent la conception, le développement, l’optimisation SEO et
         la maintenance complète de projets digitaux.
@@ -58,9 +77,15 @@
         <li>Node.js · Express · EJS · MongoDB</li>
         <li>Référencement (SEO) · Performance web</li>
       </ul>
+
+      <!-- Bouton pour télécharger le CV -->
+      <div class="cv-download">
+        <a href="img/CV-Bossaert-Julien.pdf" download class="btn-cv">Télécharger mon CV</a>
+      </div>
     </div>
   </div>
 </section>
+
 
 <section id="services" data-animate>
   <div class="container">
@@ -131,18 +156,26 @@
 <section id="formation" data-animate>
   <div class="container">
     <h2>Formation & Parcours</h2>
-    <ul>
-      <li>
-        <strong>Formation autodidacte – OpenClassrooms</strong><br>
-        Développement web (HTML, CSS, JavaScript) via des cours en ligne.<br>
-        Acquisition des bases du développement front-end, des bonnes pratiques et de la logique de programmation.
-      </li>
-      <li>
-        <strong>Titre Professionnel Développeur Web et Web Mobile (équivalent BTS)</strong><br>
-        Certification obtenue – Conception et développement d’applications web et mobiles.<br>
-        Projets concrets, travail en conditions professionnelles, respect des standards de qualité et de performance.
-      </li>
-    </ul>
+    
+    <div class="zigzag-timeline">
+      <div class="central-line"></div>
+      <div class="item right">
+        <div class="dot"></div>
+        <div class="content">
+          <strong>Titre Pro Développeur Web</strong>
+          <p>Certification niveau 5. Projets concrets et immersion professionnelle.</p>
+        </div>
+      </div>
+
+      <div class="item left">
+        <div class="dot"></div>
+        <div class="content">
+          <strong>Formation autodidacte</strong>
+          <p>E-learning : HTML, CSS, JavaScript. Acquisition des bases et logique de programmation.</p>
+        </div>
+      </div>
+
+    </div>
   </div>
 </section>
 
@@ -153,7 +186,6 @@
     <div class="contact-form">
       <form id="contactForm" method="POST">
         <h4 class="contact-heading">Avez-vous des idées ? Travaillons ensemble.</h4>
-        <p class="intro">Parlez-moi de vous et de vos projets.</p>
 
         <input type="text" id="firstName" name="firstName" placeholder="Votre prénom" required />
         <input type="text" id="lastName" name="lastName" placeholder="Votre nom" required />
