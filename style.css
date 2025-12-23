@@ -404,7 +404,7 @@ header.hero h1 {
   padding: 30px;
   display: flex;
   flex-direction: column;
-  justify-content: flex-end; 
+  justify-content: center; 
   /* TON DÉGRADÉ ORIGINAL */
   background: linear-gradient(
     to top, 
@@ -600,7 +600,7 @@ header.hero h1 {
 }
 
 /* Le contenu des cartes */
-.content {
+#formation .content {
   width: 85%;
   background: #fff;
   padding: 25px;
