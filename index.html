@@ -54,6 +54,7 @@
 <meta itemprop="priceRange" content="€€" />
 
 
+
   <div id="page-loader">
     <span class="loader"></span>
   </div>
@@ -102,8 +103,8 @@
     <h2>À propos de moi</h2>
     <div class="text">
 <p>
-Spécialisé dans la <strong>création de site internet à Surgères</strong>, je suis
-<strong>développeur web freelance basé en Charente-Maritime</strong> avec plus de 2 ans
+Spécialisé dans la <strong>création de site internet</strong>, je suis
+<strong>développeur web freelance basé à Surgères en Charente-Maritime</strong> avec plus de 2 ans
 d’expérience. J’accompagne particuliers, startups et PME dans la conception de
 <strong>sites web professionnels</strong> : site vitrine, site e-commerce et
 applications web sur mesure, optimisés pour le référencement SEO et la performance.
@@ -129,35 +130,125 @@ applications web sur mesure, optimisés pour le référencement SEO et la perfor
 </section>
 
 
-<section id="services" data-animate>
+<section id="services" class="services-section">
   <div class="container">
-    <h2>Mes services</h2>
-    <div class="service-list">
-      <div class="service">
-        <h3>Design web adaptatif</h3>
-        <p>Interfaces élégantes et réactives pour une expérience optimale sur tous les appareils.</p>
-      </div>
-      <div class="service">
-        <h3>Développement sur mesure</h3>
-        <p>Solutions personnalisées adaptées à vos besoins métier, du site vitrine à l’application web complexe.</p>
-      </div>
-      <div class="service">
-        <h3>Optimisation SEO</h3>
-        <p>Stratégies de référencement avancées pour améliorer votre visibilité et générer un trafic qualifié.</p>
-      </div>
-      <div class="service">
-        <h3>Sécurité & maintenance</h3>
-        <p>Mises à jour, corrections et protections pour un site fiable, sécurisé et toujours performant.</p>
-      </div>
-      <div class="service">
-        <h3>Intégration & automatisation</h3>
-        <p>Connexion avec vos outils et automatisation de processus pour plus d’efficacité.</p>
-      </div>
+    
+    <header class="section-header">
+      <h2 class="section-title">Solutions Digitales</h2>
+    </header>
+
+    <div class="services-wrapper">
+      
+      <article class="service-card" data-service="frontend">
+        <div class="service-top">
+          <span class="service-number">01</span>
+          <div class="service-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
+          </div>
+        </div>
+
+        <div class="service-content">
+          <h3 class="service-name">
+            Site vitrine <span class="highlight">clair et professionnel</span>
+          </h3>
+
+          <p class="service-description">
+            Un site web simple et moderne pour présenter votre activité,
+            inspirer confiance et permettre à vos clients de vous contacter facilement.
+          </p>
+
+          <ul class="service-features">
+            <li>Site adapté aux ordinateurs et mobiles</li>
+            <li>Navigation claire et intuitive</li>
+            <li>Pages rapides et bien structurées</li>
+          </ul>
+
+        </div>
+
+        <footer class="service-footer">
+          <div class="service-tech">
+            <span>Node.js</span>
+            <span>Express</span>
+            <span>EJS</span>
+          </div>
+          <a href="#contact" class="service-btn">
+            <span>Lancer mon projet</span>
+          </a>
+        </footer>
+      </article>
+
+      <article class="service-card" data-service="ecommerce">
+        <div class="service-top">
+          <span class="service-number">02</span>
+          <div class="service-icon">
+             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
+          </div>
+        </div>
+        <div class="service-content">
+          <h3 class="service-name">
+            Boutique en ligne <span class="highlight">simple et fonctionnelle</span>
+          </h3>
+
+          <p class="service-description">
+            Une boutique en ligne pour vendre vos produits facilement,
+            avec un parcours d’achat fluide et un système de paiement sécurisé.
+          </p>
+
+          <ul class="service-features">
+            <li>Paiement en ligne sécurisé</li>
+            <li>Gestion simple des produits</li>
+            <li>Interface claire pour vos clients</li>
+          </ul>
+        </div>
+        <footer class="service-footer">
+          <div class="service-tech">
+            <span>Node.js</span>
+            <span>MongoDB</span>
+            <span>Stripe</span>
+          </div>
+          <a href="#contact" class="service-btn"><span>Lancer ma boutique</span></a>
+        </footer>
+      </article>
+
+      <article class="service-card" data-service="custom">
+        <div class="service-top">
+          <span class="service-number">03</span>
+          <div class="service-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m18 16 4-4-4-4"></path><path d="m6 8-4 4 4 4"></path><path d="m14.5 4-5 16"></path></svg>
+          </div>
+        </div>
+        <div class="service-content">
+          <h3 class="service-name">
+            Outils web <span class="highlight">sur mesure</span>
+          </h3>
+
+          <p class="service-description">
+            Développement d’outils web adaptés à votre activité
+            pour automatiser certaines tâches et gagner du temps au quotidien.
+          </p>
+
+          <ul class="service-features">
+            <li>Fonctionnalités adaptées à vos besoins</li>
+            <li>Application simple et évolutive</li>
+            <li>Conseils et accompagnement</li>
+          </ul>
+        </div>
+        <footer class="service-footer">
+          <div class="service-tech">
+            <span>Node.js</span>
+            <span>Express</span>
+            <span>MongoDB</span>
+          </div>
+          <a href="#contact" class="service-btn"><span>Parler de mon besoin</span></a>
+        </footer>
+      </article>
+
     </div>
   </div>
 </section>
 
 <section id="portfolio" data-animate>
+  
   <div class="container">
     <h2>Portfolio</h2>
     <div class="projects">
@@ -226,20 +317,18 @@ applications web sur mesure, optimisés pour le référencement SEO et la perfor
         <span>+</span>
     </div>
 </div>
-
-
-
-
     </div>
   </div>
 </section>
 
+
 <section id="formation" data-animate>
   <div class="container">
-    <h2>Formation & Parcours</h2>
-    
+    <h2 class="section-title-main">Formation & Parcours</h2>
+
     <div class="zigzag-timeline">
       <div class="central-line"></div>
+
       <div class="item right">
         <div class="dot"></div>
         <div class="content">
@@ -255,11 +344,75 @@ applications web sur mesure, optimisés pour le référencement SEO et la perfor
           <p>E-learning : HTML, CSS, JavaScript. Acquisition des bases et logique de programmation.</p>
         </div>
       </div>
+    </div>
 
+    <div class="process-steps">
+      <div class="step">
+        <span class="step-number">01</span>
+        <h3>Analyse du besoin</h3>
+        <p>Compréhension de votre projet et de vos objectifs.</p>
+      </div>
+
+      <div class="step">
+        <span class="step-number">02</span>
+        <h3>Proposition & devis</h3>
+        <p>Solution adaptée avec un devis clair.</p>
+      </div>
+
+      <div class="step">
+        <span class="step-number">03</span>
+        <h3>Développement</h3>
+        <p>Conception du site avec validations régulières.</p>
+      </div>
+
+      <div class="step">
+        <span class="step-number">04</span>
+        <h3>Tests & optimisation</h3>
+        <p>SEO, performance et compatibilité mobile.</p>
+      </div>
+
+      <div class="step">
+        <span class="step-number">05</span>
+        <div class="step-text">
+          <h3>Mise en ligne & suivi</h3>
+          <p>Déploiement et accompagnement pour la vie de votre site.</p>
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
+
+<section id="faq-pricing" data-animate>
+  <div class="container">
+    <h2>Tarifs & questions fréquentes</h2>
+
+    <h3>Tarifs indicatifs</h3>
+    <ul class="pricing-list">
+      <li>Site vitrine : à partir de XXX €</li>
+      <li>Site e-commerce : à partir de XXX €</li>
+      <li>Développement sur mesure : sur devis</li>
+      <li>Maintenance : mensuelle ou annuelle</li>
+    </ul>
+
+    <h3>Questions fréquentes</h3>
+
+    <details>
+      <summary>Combien de temps faut-il pour créer un site ?</summary>
+      <p>Entre 2 et 6 semaines selon la complexité du projet.</p>
+    </details>
+
+    <details>
+      <summary>Travaillez-vous uniquement à Surgères ?</summary>
+      <p>Non, je travaille aussi à distance partout en France.</p>
+    </details>
+
+    <details>
+      <summary>Proposez-vous la maintenance ?</summary>
+      <p>Oui, des solutions de maintenance sont disponibles.</p>
+    </details>
+  </div>
+</section>
 
 <section id="contact" data-animate>
   <div class="container">
@@ -283,7 +436,7 @@ applications web sur mesure, optimisés pour le référencement SEO et la perfor
 </section>
 
 <footer>
-  <p>© 2025 Julien Bossaert · Tous droits réservés</p>
+  <p>© 2026 Julien Bossaert · Tous droits réservés</p>
   <p>
     <a href="/mentionslegales">Mentions légales</a>
     <a href="/politiquedeconfidentialite">Politique de confidentialité</a>
