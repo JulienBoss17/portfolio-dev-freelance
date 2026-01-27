@@ -1,0 +1,74 @@
+/* =========================
+   CONTACT
+   ========================= */
+   
+#contact h3 {
+  max-width: 600px; /* Aligné sur la largeur de votre formulaire */
+  margin: 0 auto 40px auto; /* Centré, avec de l'espace en dessous */
+  text-align: center;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: var(--primary-color);
+  font-weight: 400;
+  padding: 0 20px; /* Évite que le texte touche les bords sur mobile */
+}
+
+/* Optionnel : Mise en avant de la réactivité */
+#contact h3 strong {
+  color: var(--primary-color);
+  font-weight: 600;
+}
+
+.contact-form {
+  max-width: 600px;
+  margin: 0 auto;
+  background: var(--card-bg);
+  backdrop-filter: blur(15px);
+  padding: 40px;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--shadow-dark);
+}
+.contact-heading {
+  font-size: 1.8rem;
+  color: var(--primary-color);
+  margin-bottom: 10px;
+  text-align: center;
+  font-weight: 700;
+}
+
+.contact-form input, 
+.contact-form textarea {
+  width: 100%;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--glass-border);
+  padding: 15px;
+  border-radius: var(--radius-md);
+  color: white;
+  margin-bottom: 20px;
+  transition: var(--transition);
+}
+.contact-form input:focus, 
+.contact-form textarea:focus {
+  outline: none;
+  border-color: var(--accent-1);
+  background: rgba(255, 255, 255, 0.07);
+}
+textarea { resize: vertical; min-height: 150px; }
+.contact-form button {
+  width: 100%;
+  padding: 15px;
+  border: none;
+  border-radius: 50px;
+  background: linear-gradient(to right, var(--accent-1), var(--accent-2));
+  color: white;
+  font-weight: 700;
+  cursor: pointer;
+  transition: var(--transition);
+}
+.contact-form button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(0, 210, 255, 0.3);
+}
+button:active { transform: translateY(-1px); box-shadow: 0 5px 10px var(--btn-secondary-shadow); }
+.rgpd { font-size: 0.9rem; color: #6c757d; margin-top: 15px; text-align: center; }

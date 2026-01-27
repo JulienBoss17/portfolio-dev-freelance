@@ -1,0 +1,70 @@
+/* =========================
+   SECTION À PROPOS
+   ========================= */
+
+#about .text {
+  max-width: 850px;
+  margin: 0 auto;
+  background: var(--card-bg); /* Effet verre */
+  padding: 40px;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--glass-border);
+  backdrop-filter: blur(10px);
+  box-shadow: var(--shadow-dark);
+}
+
+#about p {
+  margin-bottom: 25px;
+  font-size: 1.1rem;
+  color: var(--text-muted);
+  line-height: 1.8;
+}
+
+#about p strong {
+  color: var(--accent-1); /* Met en valeur tes points clés */
+  font-weight: 40;
+}
+
+/* Grille de badges / Compétences */
+#about ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 40px;
+  padding: 0;
+}
+
+#about li {
+  background: rgba(255, 255, 255, 0.03);
+  padding: 10px 22px;
+  border-radius: 50px; /* Badges arrondis modernes */
+  border: 1px solid var(--glass-border);
+  font-weight: 600;
+  color: var(--text-main);
+  font-size: 0.9rem;
+  transition: var(--transition);
+  cursor: default;
+}
+
+/* Petit effet au survol des badges */
+#about li:hover {
+  background: rgba(0, 210, 255, 0.1);
+  border-color: var(--accent-1);
+  transform: translateY(-3px);
+  color: var(--accent-1);
+}
+
+/* Adaptabilité mobile */
+@media (max-width: 768px) {
+  #about .text {
+    padding: 25px;
+    background: transparent; /* On allège sur mobile */
+    border: none;
+  }
+  
+  #about ul {
+    justify-content: flex-start;
+  }
+}

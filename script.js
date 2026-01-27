@@ -145,3 +145,26 @@ if (document.readyState === 'loading') {
     }
 });
 
+document.addEventListener('DOMContentLoaded', () => {
+  const serviceCards = document.querySelectorAll('.service-card');
+
+  serviceCards.forEach(card => {
+    const buttons = card.querySelectorAll('.switcher-btn');
+    const contents = card.querySelectorAll('.pack-content');
+
+    buttons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const target = btn.getAttribute('data-target');
+
+        // 1. Retirer la classe active des boutons de cette carte
+        buttons.forEach(b => b.classList.remove('active'));
+        // 2. Retirer la classe active des contenus de cette carte
+        contents.forEach(c => c.classList.remove('active'));
+
+        // 3. Activer le bon bouton et le bon contenu
+        btn.classList.add('active');
+        card.querySelector(`.pack-content#${target}`).classList.add('active');
+      });
+    });
+  });
+});

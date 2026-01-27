@@ -1,0 +1,239 @@
+/* ============================================================
+   VARIABLES SECTION FORMATION
+   ============================================================ */
+#formation {
+  --formation-bg-color: #0a0e17;
+  --formation-card-bg: rgba(255, 255, 255, 0.05);
+  --formation-dark: #ffffff;
+  --formation-accent-1: #00d2ff;
+  --formation-accent-2: #3a7bd5;
+  --formation-accent-3: #8e2de2;
+  --formation-glass-border: rgba(255, 255, 255, 0.1);
+  --formation-text-muted: #ccd6f6;
+  --formation-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.5);
+  --formation-transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  font-family: 'Poppins', sans-serif;
+  background: radial-gradient(circle at center, #1b2735 0%, #090a0f 100%);
+  color: #fff;
+  padding: 80px 20px;
+}
+
+/* ============================================================
+   TITRE PRINCIPAL
+   ============================================================ */
+#formation .section-title-main {
+  text-align: center;
+  font-size: 2.5rem;
+  font-weight: 800;
+  margin-bottom: 60px;
+  background: linear-gradient(to right, var(--formation-accent-1), var(--formation-accent-2));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* ============================================================
+   TIMELINE ZIGZAG
+   ============================================================ */
+#formation .zigzag-timeline {
+  position: relative;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+#formation .central-line {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  transform: translateX(-50%);
+  width: 2px;
+  height: 100%;
+  background: var(--formation-accent-1);
+  opacity: 0.15;
+}
+
+#formation .item {
+  position: relative;
+  display: flex;
+  width: 100%;
+  margin-bottom: 50px;
+  transition: var(--formation-transition);
+}
+
+#formation .item.left { justify-content: flex-end; padding-right: 50%; }
+#formation .item.right { justify-content: flex-start; padding-left: 50%; }
+
+#formation .dot {
+  position: absolute;
+  left: 50%;
+  top: 42px;
+  transform: translateX(-50%);
+  width: 18px;
+  height: 18px;
+  background: var(--formation-card-bg);
+  border: 4px solid var(--formation-accent-1);
+  border-radius: 50%;
+  z-index: 2;
+  transition: var(--formation-transition);
+  box-shadow: 0 0 0 0 rgba(0, 123, 255, 0.4);
+}
+
+#formation .item .content {
+  width: 85%;
+  background: var(--formation-card-bg);
+  padding: 30px;
+  border-radius: 24px;
+  box-shadow: var(--formation-shadow);
+  border: 1px solid var(--formation-glass-border);
+  transition: var(--formation-transition);
+}
+
+#formation .item.left .content { margin-right: 40px; text-align: right; }
+#formation .item.right .content { margin-left: 40px; text-align: left; }
+
+#formation .content strong {
+  display: block;
+  font-size: 1.2rem;
+  color: var(--formation-dark);
+  margin-bottom: 10px;
+}
+
+/* ============================================================
+   HOVER TIMELINE
+   ============================================================ */
+#formation .item:hover .dot {
+  background: var(--formation-accent-1);
+  transform: translateX(-50%) scale(1.4);
+  box-shadow: 0 0 15px var(--formation-accent-1);
+}
+
+#formation .item.left:hover .content {
+  transform: translateX(-15px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+  border-color: var(--formation-accent-1);
+}
+
+#formation .item.right:hover .content {
+  transform: translateX(15px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+  border-color: var(--formation-accent-1);
+}
+
+/* ============================================================
+   PROCESS STEPS / BENTO
+   ============================================================ */
+/* BENTO PROCESS AVEC CHEMINEMENT LUMINEX */
+#formation .process-steps {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-auto-rows: 220px;
+  gap: 25px;
+  max-width: 1100px;
+  margin: 100px auto 0;
+}
+
+#formation .step {
+  position: relative;
+  background: var(--formation-card-bg);
+  border-radius: 24px;
+  padding: 30px;
+  border: 1px solid var(--formation-glass-border);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  transition: var(--formation-transition);
+}
+
+/* La flèche de cheminement par défaut */
+#formation .step:not(:last-child)::after {
+  content: "→";
+  position: absolute;
+  right: -20px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--formation-accent-1);
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-shadow: 0 0 10px var(--formation-accent-1);
+  z-index: 5;
+}
+
+/* --- LOGIQUE DE DIAGONALE (3 vers 4) --- */
+#formation .step:nth-child(3)::after {
+  content: "→"; 
+  right: 103%;           /* Part du milieu horizontal */
+  top: auto;
+  bottom: -35px;        /* Se place sous la carte */
+  /* Rotation pour pointer vers le début de la ligne suivante (bas-gauche) */
+  transform: translateX(50%) rotate(150deg); 
+}
+
+/* Réinitialisation pour la 4 vers la 5 (car la 4 est un span 2) */
+#formation .step:nth-child(4) { 
+  grid-column: span 2; 
+}
+
+#formation .step:nth-child(4)::after {
+  content: "→";
+  right: -20px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+/* Styles textes et hover */
+#formation .step:hover { 
+  border-color: var(--formation-accent-1); 
+  background: rgba(0, 210, 255, 0.05); 
+  transform: translateY(-5px); 
+}
+
+#formation .step h3 { font-size: 1.3rem; margin-bottom: 10px; color: var(--formation-accent-1); }
+#formation .step p { font-size: 0.9rem; color: var(--formation-text-muted); }
+
+/* Cache la flèche sur la dernière étape */
+#formation .step:last-child::after {
+  display: none;
+}
+
+/* ============================================================
+   MODE RESPONSIVE (MOBILE & TABLETTE)
+   ============================================================ */
+
+@media (max-width: 768px) {
+  /* --- Global & Titre --- */
+  #formation { padding: 60px 15px; }
+  #formation .section-title-main { font-size: 1.8rem; }
+
+  /* --- Timeline Linéaire --- */
+  #formation .central-line { left: 20px; transform: none; }
+  #formation .item.left, #formation .item.right {
+    justify-content: flex-start;
+    padding-left: 45px;
+    padding-right: 0;
+    width: 100%;
+  }
+  #formation .dot { left: 20px; top: 30px; }
+  #formation .item .content {
+    width: 100%;
+    text-align: left !important;
+    margin: 0 !important;
+  }
+
+  /* --- Bento Process Mobile --- */
+  #formation .process-steps {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  #formation .step {
+    grid-column: span 1 !important; /* Force le reset du span 2 */
+    min-height: 150px;
+    padding: 25px;
+  }
+
+  /* Effet Bento : Tailles de cases variées en hauteur */
+  #formation .step:nth-child(4) { grid-column: span 1; }
+
+  /* On remplace les flèches par un numéro d'étape discret en haut à droite */
+  #formation .step::after { display: none !important; }
+}
