@@ -155,6 +155,12 @@ header.hero h1 {
   letter-spacing: 2px;
 }
 
+.description {
+  font-size: 1.4rem;
+  margin-bottom: 50px;
+  text-shadow: 2px 2px 5px rgba(0,0,0,0.15);
+}
+
 
 
 /* =========================
@@ -251,6 +257,7 @@ header.hero h1 {
   object-fit: contain;
   background: transparent !important;
   border: none !important;
+  border-radius: 15px;
 }
 
 .social-links a:hover {
