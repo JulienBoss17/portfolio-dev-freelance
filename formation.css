@@ -211,6 +211,11 @@
     padding-right: 0;
     width: 100%;
   }
+
+  #formation .item.left:hover .content {
+  transform: translateX(15px);
+}
+
   #formation .dot { left: 20px; top: 30px; }
   #formation .item .content {
     width: 100%;

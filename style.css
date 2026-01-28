@@ -24,7 +24,7 @@
   --radius-md: 12px;
 }
 
-html { scroll-behavior: smooth; scroll-padding-top: 80px; }
+html { scroll-behavior: smooth; }
 
 body {
   font-family: 'Poppins', sans-serif;
@@ -191,37 +191,27 @@ header.hero h1 {
    BURGER BUTTON - RESET COMPLET
    ========================= */
 #burgerBtn {
-  display: none; /* Caché par défaut */
+  display: none; /* Caché sur PC */
   position: fixed;
   top: 25px;
   right: 25px;
   width: 32px;
   height: 24px;
-  
-  /* Reset des styles de bouton par défaut */
   background: none !important;
-  background-color: transparent !important;
   border: none !important;
-  padding: 0 !important;
-  outline: none !important;
-  box-shadow: none !important;
-  appearance: none;
-  -webkit-appearance: none;
-  
   flex-direction: column;
   justify-content: space-between;
   cursor: pointer;
-  z-index: 2100; /* Toujours au dessus de la nav */
+  z-index: 100000; /* AU DESSUS DU LOADER */
 }
 
 #burgerBtn span {
   display: block;
   height: 3px;
   width: 100%;
-  background-color: var(--btn-shadow-color); /* Ta couleur rose */
+  background-color: var(--accent-1); /* COULEUR CYAN VISIBLE */
   border-radius: 10px;
   transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-  transform-origin: center;
 }
 
 /* Éviter le highlight bleu dégueulasse sur mobile */
@@ -529,7 +519,6 @@ footer a:hover { color: #fff; text-decoration: underline; }
 @media (max-width: 768px) {
   .services-section .section-title { font-size: 2.2rem; }
   .services-section .services-wrapper { grid-template-columns: 1fr; }
-  .services-section .packs-container { min-height: auto; }
 }
 
 @keyframes spin { to { transform: rotate(360deg); } }

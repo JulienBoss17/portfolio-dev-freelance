@@ -49,7 +49,7 @@
 
 /* BLOC DU HAUT (Celui qui aligne les switchers) */
 .service-header-block {
-  min-height: 400px; /* VALEUR CLÉ : Ajuste selon tes textes pour aligner les switchers */
+  min-height: 500px; /* VALEUR CLÉ : Ajuste selon tes textes pour aligner les switchers */
   display: flex;
   flex-direction: column;
 }
@@ -114,14 +114,15 @@
 .packs-container {
   flex-grow: 1; /* Prend tout l'espace disponible */
   margin-bottom: 30px;
-  min-height: 300px;
+  min-height: 400px;
 }
 
 .pack-content { display: none; }
 .pack-content.active { display: block; animation: fadeIn 0.4s ease; }
 
 .pack-content h4 {
-  font-size: 0.95rem;
+  font-size: 1.3rem;
+  text-decoration: underline;
   margin-bottom: 15px;
   color: #fff;
   border-left: 3px solid var(--services-accent-1);
