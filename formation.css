@@ -200,7 +200,7 @@
 
 @media (max-width: 768px) {
   /* --- Global & Titre --- */
-  #formation { padding: 60px 15px; }
+  #formation { padding: 80px 20px; }
   #formation .section-title-main { font-size: 1.8rem; }
 
   /* --- Timeline Linéaire --- */

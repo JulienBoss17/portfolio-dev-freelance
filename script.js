@@ -45,42 +45,36 @@ document.addEventListener('DOMContentLoaded', () => {
 // --- 4. PORTFOLIO : VERSION SÉCURISÉE ---
 const initPortfolio = () => {
     const projects = document.querySelectorAll('.project');
-    
-    console.log("Portfolio initialisé :", projects.length, "projets trouvés.");
 
     projects.forEach(card => {
-        const hint = card.querySelector('.project-hint');
-
-        if (hint) {
-            // On utilise onclick directement pour éviter les doublons d'écouteurs
-            hint.onclick = (e) => {
-                e.preventDefault();
-                e.stopPropagation();
-                
-                console.log("Bouton cliqué pour :", card.querySelector('h3').innerText);
-
-                const isOpen = card.classList.contains('is-tapped');
-
-                // Fermer les autres
-                projects.forEach(p => p.classList.remove('is-tapped'));
-
-                // Ouvrir/Fermer l'actuel
-                if (!isOpen) {
-                    card.classList.add('is-tapped');
-                }
-            };
-        }
-
-        // Fermer en cliquant sur la carte ouverte (sauf sur le lien)
-        card.onclick = (e) => {
+        const handleInteraction = (e) => {
+            // Si on clique sur le lien, on sort
             if (e.target.tagName === 'A') return;
-            if (card.classList.contains('is-tapped')) {
+
+            // Bloque le comportement de survol natif d'iOS
+            if (e.type === 'touchstart') {
+                // On ne fait preventDefault que si ce n'est pas un lien
+                // pour permettre le scroll naturel
+            }
+
+            const isOpen = card.classList.contains('is-tapped');
+
+            // Fermer les autres
+            projects.forEach(p => p.classList.remove('is-tapped'));
+
+            // Basculer l'état
+            if (!isOpen) {
+                card.classList.add('is-tapped');
+            } else {
                 card.classList.remove('is-tapped');
             }
         };
+
+        // On écoute le clic
+        card.addEventListener('click', handleInteraction);
     });
 
-    // Fermeture si clic à l'extérieur
+    // Fermer si clic à l'extérieur
     document.addEventListener('click', (e) => {
         if (!e.target.closest('.project')) {
             projects.forEach(p => p.classList.remove('is-tapped'));
