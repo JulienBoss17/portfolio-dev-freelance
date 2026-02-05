@@ -381,7 +381,7 @@ footer {
   border-top: 3px solid var(--secondary-color);
 }
 footer p:first-child { margin-bottom: 8px; }
-footer a { color: var(--accent-1); text-decoration: none; margin: 0 10px; font-weight: 600; transition: color 0.2s; }
+footer a { color: var(--accent-2); text-decoration: none; margin: 0 10px; font-weight: 600; transition: color 0.2s; }
 footer a:hover { color: #fff; text-decoration: underline; }
 
 
