@@ -8,14 +8,14 @@
   text-align: center;
   font-size: 1.1rem;
   line-height: 1.6;
-  color: var(--primary-color);
+  color: var(--text-muted);
   font-weight: 400;
   padding: 0 20px; /* Évite que le texte touche les bords sur mobile */
 }
 
 /* Optionnel : Mise en avant de la réactivité */
 #contact h3 strong {
-  color: var(--primary-color);
+  color: var(--text-muted);
   font-weight: 600;
 }
 
@@ -31,7 +31,7 @@
 }
 .contact-heading {
   font-size: 1.8rem;
-  color: var(--primary-color);
+  color: var(--text-muted);
   margin-bottom: 10px;
   text-align: center;
   font-weight: 700;
