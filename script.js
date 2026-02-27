@@ -44,25 +44,50 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // --- 4. PORTFOLIO : VERSION SÉCURISÉE ---
 const initPortfolio = () => {
+    const projectsTrack = document.querySelector('.projects');
+    const prevBtn = document.querySelector('.project-nav.prev');
+    const nextBtn = document.querySelector('.project-nav.next');
     const projects = document.querySelectorAll('.project');
+
+    if (projectsTrack) {
+        projectsTrack.querySelectorAll('img').forEach(img => img.setAttribute('draggable', 'false'));
+    }
+
+    const getStepSize = () => {
+        if (!projectsTrack || projects.length === 0) return 0;
+        const firstCard = projects[0];
+        const styles = window.getComputedStyle(projectsTrack);
+        const gap = parseFloat(styles.gap) || 0;
+        return firstCard.getBoundingClientRect().width + gap;
+    };
+
+    const updateNavState = () => {
+        if (!projectsTrack || !prevBtn || !nextBtn) return;
+        const maxScrollLeft = projectsTrack.scrollWidth - projectsTrack.clientWidth;
+        prevBtn.disabled = projectsTrack.scrollLeft <= 4;
+        nextBtn.disabled = projectsTrack.scrollLeft >= maxScrollLeft - 4;
+    };
+
+    if (projectsTrack && prevBtn && nextBtn) {
+        prevBtn.addEventListener('click', () => {
+            projectsTrack.scrollBy({ left: -getStepSize(), behavior: 'smooth' });
+        });
+        nextBtn.addEventListener('click', () => {
+            projectsTrack.scrollBy({ left: getStepSize(), behavior: 'smooth' });
+        });
+
+        projectsTrack.addEventListener('scroll', updateNavState, { passive: true });
+        window.addEventListener('resize', updateNavState);
+        updateNavState();
+    }
 
     projects.forEach(card => {
         const handleInteraction = (e) => {
-            // Si on clique sur le lien, on sort
             if (e.target.tagName === 'A') return;
 
-            // Bloque le comportement de survol natif d'iOS
-            if (e.type === 'touchstart') {
-                // On ne fait preventDefault que si ce n'est pas un lien
-                // pour permettre le scroll naturel
-            }
-
             const isOpen = card.classList.contains('is-tapped');
-
-            // Fermer les autres
             projects.forEach(p => p.classList.remove('is-tapped'));
 
-            // Basculer l'état
             if (!isOpen) {
                 card.classList.add('is-tapped');
             } else {
@@ -70,11 +95,9 @@ const initPortfolio = () => {
             }
         };
 
-        // On écoute le clic
         card.addEventListener('click', handleInteraction);
     });
 
-    // Fermer si clic à l'extérieur
     document.addEventListener('click', (e) => {
         if (!e.target.closest('.project')) {
             projects.forEach(p => p.classList.remove('is-tapped'));
@@ -82,12 +105,7 @@ const initPortfolio = () => {
     });
 };
 
-// Lancement au chargement
-if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initPortfolio);
-} else {
-    initPortfolio();
-}
+initPortfolio();
 
     // --- 5. FORMULAIRE ---
     const showToast = (message, type = 'success') => {

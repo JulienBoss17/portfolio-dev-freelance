@@ -40,6 +40,15 @@
       <image:loc>https://cdn.futura-sciences.com/sources/images/cerveau-organe.jpg</image:loc>
       <image:caption>Capture d'écran de l'application Q-Culture</image:caption>
     </image:image>
+    <image:image>
+      <image:loc>https://portfolio.jubdev.fr/images/maville.jpg</image:loc>
+      <image:caption>Capture d'écran du projet 'Ma Ville'</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://cdn.futura-sciences.com/sources/images/cerveau-organe.jpg</image:loc>
+      <image:caption>Capture d'écran de l'application Q-Culture</image:caption>
+    </image:image>
+
   </url>
 
   <!-- Formation -->

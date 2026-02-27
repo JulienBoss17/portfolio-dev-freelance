@@ -233,9 +233,9 @@ d’expérience. J’accompagne particuliers, startups et PME dans la conception
 
     </div>
 
-    <footer class="service-footer">
+    <div class="service-footer">
       <a href="#contact" class="service-btn"><span>Obtenir un devis gratuit</span></a>
-    </footer>
+    </div>
   </article>
 
   <!-- Boutique en ligne -->
@@ -278,9 +278,9 @@ d’expérience. J’accompagne particuliers, startups et PME dans la conception
       </div>
     </div>
 
-    <footer class="service-footer">
+    <div class="service-footer">
       <a href="#contact" class="service-btn"><span>Obtenir un devis gratuit</span></a>
-    </footer>
+    </div>
   </article>
 
   <!-- Hébergement VPS -->
@@ -334,9 +334,9 @@ d’expérience. J’accompagne particuliers, startups et PME dans la conception
     </div>
   </div>
 
-  <footer class="service-footer">
+  <div class="service-footer">
     <a href="#contact" class="service-btn"><span>Obtenir un devis gratuit</span></a>
-  </footer>
+  </div>
 </article>
 
 
@@ -349,7 +349,9 @@ d’expérience. J’accompagne particuliers, startups et PME dans la conception
   
   <div class="container">
     <h2>Portfolio</h2>
-    <div class="projects">
+    <div class="portfolio-carousel">
+      <button class="project-nav prev" type="button" aria-label="Projet précédent">&lt;</button>
+      <div class="projects" aria-label="Carrousel des projets">
 
       <!-- Projet 1 -->
       <div class="project">
@@ -357,7 +359,7 @@ d’expérience. J’accompagne particuliers, startups et PME dans la conception
         <div class="content">
           <h3>NBloc10 – Site vitrine</h3>
           <p>Site vitrine responsive pour présenter efficacement un bien immobilier, avec navigation fluide et design épuré.</p>
-          <p><strong>Tech :</strong> HTML, CSS, JavaScript</p>
+          <p><strong>Tech :</strong>Node.js, HTML, CSS, JavaScript</p>
           <p class="project-note">Projet en ligne – destiné à un particulier.</p>
           <a href="https://jubdev.fr/" target="_blank">Voir le projet</a>
         </div>
@@ -397,6 +399,25 @@ d’expérience. J’accompagne particuliers, startups et PME dans la conception
             <span>+</span>
         </div>
       </div>
+
+      <!-- Projet Ma Ville -->
+      <div class="project">
+        <img src="images/maville.jpg" 
+             alt="Aperçu de ma ville" 
+             loading="lazy" />
+        <div class="content">
+          <h3>Projet de démonstration – Ma Ville</h3>
+          <p>Site internet de présentation d'une ville virtuelle. Avec une navigation fluide et un design moderne.</p>
+          <p><strong>Tech :</strong> Node.js, HTML, CSS, JavaScript</p>
+          <p class="project-note">Projet en ligne - destiné à mon protfolio</p>
+          <a href="https://maville.jubdev.fr/" target="_blank">Voir le projet</a>
+        </div>
+        <div class="project-hint">
+            <span>+</span>
+        </div>
+      </div>
+      </div>
+      <button class="project-nav next" type="button" aria-label="Projet suivant">&gt;</button>
     </div>
   </div>
 </section>
