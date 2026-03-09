@@ -4,11 +4,20 @@
 
   <!-- Page principale -->
   <url>
+    <loc>http://portfolio.jubdev.fr/</loc>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
     <loc>https://portfolio.jubdev.fr/</loc>
     <priority>1.0</priority>
     <changefreq>weekly</changefreq>
     <image:image>
       <image:loc>https://portfolio.jubdev.fr/images/Julien_logo.png</image:loc>
+      <image:caption>Logo Julien Bossaert - Développeur Web Freelance</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://portfolio.jubdev.fr/images/Julien_logo-2.png</image:loc>
       <image:caption>Logo Julien Bossaert - Développeur Web Freelance</image:caption>
     </image:image>
   </url>
@@ -18,6 +27,14 @@
     <loc>https://portfolio.jubdev.fr/#about</loc>
     <priority>0.8</priority>
     <changefreq>monthly</changefreq>
+    <image:image>
+      <image:loc>https://portfolio.jubdev.fr/images/Instagram.webp</image:loc>
+      <image:caption>Logo Julien Bossaert - Développeur Web Freelance</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://portfolio.jubdev.fr/images/Github.jpg</image:loc>
+      <image:caption>Logo Julien Bossaert - Développeur Web Freelance</image:caption>
+    </image:image>
   </url>
 
   <!-- Services -->
@@ -45,9 +62,10 @@
       <image:caption>Capture d'écran du projet 'Ma Ville'</image:caption>
     </image:image>
     <image:image>
-      <image:loc>https://cdn.futura-sciences.com/sources/images/cerveau-organe.jpg</image:loc>
-      <image:caption>Capture d'écran de l'application Q-Culture</image:caption>
+      <image:loc>https://github.com/JulienBoss17/Discord-Bot-v2/blob/main/assets/discord-bot-preview.png</image:loc>
+      <image:caption>Capture d'écran du projet 'Discord Bot'</image:caption>
     </image:image>
+
 
   </url>
 
