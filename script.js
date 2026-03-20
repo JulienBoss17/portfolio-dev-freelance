@@ -42,6 +42,16 @@ document.addEventListener('DOMContentLoaded', () => {
     }, { threshold: 0.15 });
     revealElements.forEach(el => revealObserver.observe(el));
 
+    // --- 3b. SMOOTH SCROLL TO CONTACT (OFFRES) ---
+    document.querySelectorAll('a[href="#contact"]').forEach(link => {
+        link.addEventListener('click', (e) => {
+            const target = document.getElementById('contact');
+            if (!target) return;
+            e.preventDefault();
+            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        });
+    });
+
 // --- 4. PORTFOLIO : VERSION SÉCURISÉE ---
 const initPortfolio = () => {
     const projectsTrack = document.querySelector('.projects');

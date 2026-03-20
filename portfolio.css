@@ -8,7 +8,7 @@
   scroll-snap-type: x mandatory;
   -webkit-overflow-scrolling: touch;
   scroll-behavior: smooth;
-  touch-action: pan-x;
+  touch-action: pan-x pan-y;
   gap: 30px;
   padding-bottom: 12px;
   scrollbar-width: none;
@@ -222,6 +222,18 @@
 
 @media (hover: none), (pointer: coarse) {
   .project-nav {
-    display: none;
+    width: 38px;
+    height: 38px;
+    font-size: 26px;
+    opacity: 0.9;
+    background: rgba(15, 23, 42, 0.92);
+  }
+
+  .project-nav.prev {
+    left: 6px;
+  }
+
+  .project-nav.next {
+    right: 6px;
   }
 }
